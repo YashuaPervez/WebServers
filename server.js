@@ -34,23 +34,22 @@ hbs.registerHelper("getYear", () => {
     return new Date().getFullYear();
 });
 
+hbs.registerHelper("author", () => {
+    return "Yashua.io";
+});
+
 app.get('/', (req, res) => {
     res.render("home.hbs", {
-        author: "Yashua.io",
         welcomeMessage: "Hi, Welcome to your Express Server",
     });
 });
 
 app.get("/about", (req, res) => {
-    res.render("about.hbs", {
-        author: "Yashua.io",
-    });
+    res.render("about.hbs");
 });
 
-app.get("/bad", (req, res) => {
-    res.send({
-        error: "unable to fullfill your request",
-    })
+app.get("/projects", (req, res) => {
+    res.render("projects.hbs")
 });
 
 app.listen(port, () => {
